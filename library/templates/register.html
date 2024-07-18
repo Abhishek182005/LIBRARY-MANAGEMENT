@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+<center>
+   <h1 class="display-5">Register To Library</h1>
+</center>
+<br><br>
+<div class="container border border-dark p-3 mt-10" style="width: 550px">
+   {% for message in messages %}
+   <div class="alert alert-danger" role="alert">
+       {{message}}
+   </div>
+   {% endfor %}
+   <form action={% url 'register' %} method="POST">
+       {% csrf_token %}
+       <div class="form-group">
+           <label><b>First Name</b></label>
+           <input type="text" name="first_name" class="form-control" placeholder="First Name">
+       </div>
+       <br>
+       <div class="form-group">
+           <label><b>Last Name</b></label>
+           <input type="text" name="last_name" class="form-control" placeholder="Last Name">
+       </div>
+       <br>
+       <div class="form-group">
+           <label><b>Username</b></label>
+           <input type="text" name="username" class="form-control" placeholder="Username">
+       </div>
+       <br>
+       <div class="form-group">
+           <label><b>Email</b></label>
+           <input type="email" name="email" class="form-control" placeholder="Email">
+       </div>
+       <br>
+       <div class="form-group">
+           <label><b>Password</b></label>
+           <input type="password" name="password1" class="form-control" placeholder="Password">
+       </div>
+       <br>
+       <div class="form-group">
+           <label><b>Confirm Password</b></label>
+           <input type="password" name="password2" class="form-control" placeholder="Confirm Password">
+       </div>
+       <br>
+       <center>
+           <button type="submit" class="btn btn-primary">Register</button>
+       </center>
+       <br>
+       <center>
+           <a href="login">already a user</a>
+       </center>
+   </form>
+</div>
+<br>
+{% endblock %}

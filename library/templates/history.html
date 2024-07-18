@@ -1,0 +1,104 @@
+{% extends 'base.html' %} {% block content %}
+<center>
+ <br />
+ <h1 class="display-5 fw-bold">Your History</h1>
+ <br />
+</center>
+<div class="container">
+ <table class="table">
+   <thead class="thead-dark">
+     <tr>
+       <th scope="col">Book Name</th>
+       <th scope="col">Author Name</th>
+       <th scope="col">Issue Date</th>
+       <th scope="col">Return Date</th>
+     </tr>
+   </thead>
+   <tbody>
+     {% for book in books %}
+     <tr>
+       <td>{{book.book_id.book_name}}</td>
+       <td>{{book.book_id.author_name}}</td>
+       <td>{{book.issue_date}}</td>
+       <td>{{book.return_date}}</td>
+     </tr>
+     {% endfor %}
+   </tbody>
+ </table>
+</div>
+<div class="mx-auto" style="width: 200px">
+ <nav aria-label="...">
+   <ul class="pagination ms-10">
+     {% if books.has_previous %}
+     <li class="page-item active">
+       <a
+         class="page-link"
+         href="?page={{books.previous_page_number}}"
+         tabindex="-1"
+         >&laquo;</a
+       >
+     </li>
+     {% endif %} {% for i in "x"|ljust:books.paginator.num_pages %}
+     <li
+       class="page-item {% if forloop.counter == books.number %}active{% endif %}"
+     >
+       <!-- Show the link if there are more than 1 page -->
+
+       {% if books.paginator.num_pages > 1 %}
+       <a class="page-link" href="?page={{forloop.counter}}"
+         >{{forloop.counter}}</a
+       >
+       {% endif %}
+     </li>
+     {% endfor %} {% if books.has_next %}
+     <li class="page-item active">
+       <a class="page-link" href="?page={{books.next_page_number}}">&raquo;</a>
+     </li>
+     {% endif %}
+   </ul>
+ </nav>
+</div>
+<style>
+ table {
+   border-collapse: collapse;
+   border-spacing: 0;
+   border-radius: 10px;
+   width: 100%;
+   border: 1px solid #ddd;
+ }
+
+ th,
+ td {
+   text-align: left;
+   padding: 16px;
+ }
+
+ tr:nth-child(even) {
+   background-color: #f2f2f2;
+ }
+
+ tr:nth-child(odd) {
+   background-color: #ffffff;
+ }
+
+ .container {
+   width: 100%;
+   padding-right: 15px;
+   padding-left: 15px;
+   margin-right: auto;
+   margin-left: auto;
+ }
+
+ .input-group {
+   width: 100%;
+   margin-bottom: 1rem;
+ }
+
+ body {
+   background: linear-gradient(#87f4b5, #93cbf1);
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+ }
+</style>
+
+{% endblock %}
