@@ -1,12 +1,12 @@
 # LIBRARY-MANAGEMENT
 It is my first Django porject which made use of a database. Django bydefault uses sqlite as its primary database.<br>
-although other databases can be used by modifying in the setting section of your min project.
+although other databases can be used by modifying in the setting section of your main project.
 Things included here is database of books, students etc.<br>
-It has operation of issue, return and authroisation of students.<br>
+It has operation of issue, return and authroisation of students and many more features.<br>
 For admin section django admin is the primary where admin can keep an eye on members and stocks of books available.
 Idea taken from <br>
 <a href="https://pythongeeks.org/django-library-management-system/">Pythongeek</a>
-<b>SNEAK PEAK</b>
+<br><b>SNEAK PEAK</b>
 <br>
 <h3>Without Authentication</h3>
 <br>
