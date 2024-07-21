@@ -1,5 +1,5 @@
 # LIBRARY-MANAGEMENT
-It is my first Django porject which made use of a database. Django bydefault uses sqlite as its primary database.<br>
+It is my first Django project which made use of a database. Django bydefault uses sqlite as its primary database.<br>
 although other databases can be used by modifying in the setting section of your main project.
 Things included here is database of books, students etc.<br>
 It has operation of issue, return and authroisation of students and many more features.<br>
